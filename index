@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【店名を入れてください】| 公式サイト</title>
+    <style>
+        /* --- 全体のデザイン設定 --- */
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.8; }
+        
+        /* ヘッダー：店名部分 */
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 3px; }
+
+        /* メイン画像：雰囲気を決める一番大きな写真 */
+        .hero { 
+            background: #f0f0f0; 
+            height: 70vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            /* ↓ お店の写真（URL）をここに入れてください */
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+        }
+        .hero-text h2 { font-size: 2rem; border: none; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+        /* 各セクションの余白 */
+        section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 1.8rem; margin-bottom: 40px; letter-spacing: 4px; position: relative; }
+        h2::after { content: ""; display: block; width: 40px; height: 2px; background: #b19470; margin: 15px auto 0; }
+
+        /* メニューのレイアウト */
+        .menu-container { background: #fafafa; padding: 30px; border-radius: 8px; }
+        .menu-item { display: flex; justify-content: space-between; border-bottom: 1px solid #e0e0e0; padding: 15px 0; font-size: 1.1rem; }
+        .price { font-weight: bold; color: #555; }
+
+        /* 予約ボタン（一番目立たせる） */
+        .reserve-area { text-align: center; background: #f4f1ee; padding: 60px 20px; }
+        .btn-hpb { 
+            display: inline-block; 
+            background: #b19470; /* ボタンの色（お好みに合わせて変更可） */
+            color: white; 
+            text-decoration: none; 
+            padding: 20px 50px; 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(177, 148, 112, 0.3);
+        }
+        .btn-hpb:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(177, 148, 112, 0.5); }
+
+        /* 店舗情報テーブル */
+        .info-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .info-table th, .info-table td { padding: 18px; border-bottom: 1px solid #eee; text-align: left; }
+        .info-table th { width: 30%; font-weight: normal; color: #888; }
+
+        footer { background: #333; color: white; text-align: center; padding: 30px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>YOUR SALON NAME</h1>
+    </header>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h2>自分らしさを、もっと好きになる。</h2>
+            <p>こだわりの技術と、リラックスできる空間を。</p>
+        </div>
+    </div>
+
+    <section id="concept">
+        <h2>CONCEPT</h2>
+        <div style="text-align: center;">
+            <p>
+                ここにコンセプト文を入力してください。<br>
+                例：一人ひとりの髪質や骨格に合わせたオーダーメイドのカットをご提案します。<br>
+                日々の忙しさを忘れ、心からリラックスできる時間をお過ごしください。
+            </p>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>MENU</h2>
+        <div class="menu-container">
+            <div class="menu-item"><span>デザインカット</span><span class="price">¥5,500</span></div>
+            <div class="menu-item"><span>フルカラー</span><span class="price">¥7,700</span></div>
+            <div class="menu-item"><span>髪質改善トリートメント</span><span class="price">¥6,600</span></div>
+            <div class="menu-item"><span>ヘッドスパ（30分）</span><span class="price">¥4,400</span></div>
+        </div>
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #888;">※その他のメニューは予約サイトよりご確認いただけます。</p>
+    </section>
+
+    <div class="reserve-area">
+        <p>ご予約はホットペッパービューティーから承っております</p>
+        <a href="https://beauty.hotpepper.jp/XXXXXXXXXX" class="btn-hpb">空席確認・予約する</a>
+    </div>
+
+    <section id="info">
+        <h2>INFORMATION</h2>
+        <table class="info-table">
+            <tr><th>住所</th><td>〒000-0000 〇〇県〇〇市〇〇 1-2-3</td></tr>
+            <tr><th>営業時間</th><td>10:00 〜 19:00（カット最終受付 18:00）</td></tr>
+            <tr><th>定休日</th><td>毎週月曜日、第1・3火曜日</td></tr>
+            <tr><th>電話番号</th><td>03-1234-5678</td></tr>
+            <tr><th>アクセス</th><td>〇〇駅 北口より徒歩3分 / 駐車場あり</td></tr>
+        </table>
+    </section>
+
+    <footer>
+        &copy; 2026 YOUR SALON NAME.
+    </footer>
+
+</body>
+</html>
