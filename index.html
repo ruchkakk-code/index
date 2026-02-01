@@ -3,46 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【Ruchka】| 女性専用サロン</title>
+    <title>Ruchka（ルーチカ） | 美容室</title>
     <style>
-        /* --- 全体のデザイン設定 --- */
+        /* --- デザイン設定 --- */
         body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.8; }
-        
-        /* ヘッダー：店名部分 */
         header { background: #fff; padding: 20px; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
         header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 3px; }
-
-        /* メイン画像：雰囲気を決める一番大きな写真 */
         .hero { 
             background: #f0f0f0; 
-            height: 70vh; 
+            height: 60vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             text-align: center; 
-            /* ↓ お店の写真（URL）をここに入れてください */
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80'); 
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80'); 
             background-size: cover; 
             background-position: center; 
             color: white; 
         }
         .hero-text h2 { font-size: 2rem; border: none; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-
-        /* 各セクションの余白 */
         section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
         h2 { text-align: center; font-size: 1.8rem; margin-bottom: 40px; letter-spacing: 4px; position: relative; }
         h2::after { content: ""; display: block; width: 40px; height: 2px; background: #b19470; margin: 15px auto 0; }
-
-        /* メニューのレイアウト */
         .menu-container { background: #fafafa; padding: 30px; border-radius: 8px; }
         .menu-item { display: flex; justify-content: space-between; border-bottom: 1px solid #e0e0e0; padding: 15px 0; font-size: 1.1rem; }
         .price { font-weight: bold; color: #555; }
-
-        /* 予約ボタン（一番目立たせる） */
         .reserve-area { text-align: center; background: #f4f1ee; padding: 60px 20px; }
         .btn-hpb { 
             display: inline-block; 
-            background: #b19470; /* ボタンの色（お好みに合わせて変更可） */
+            background: #b19470; 
             color: white; 
             text-decoration: none; 
             padding: 20px 50px; 
@@ -53,11 +42,13 @@
             box-shadow: 0 4px 15px rgba(177, 148, 112, 0.3);
         }
         .btn-hpb:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(177, 148, 112, 0.5); }
-
-        /* 店舗情報テーブル */
-        .info-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .info-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
         .info-table th, .info-table td { padding: 18px; border-bottom: 1px solid #eee; text-align: left; }
         .info-table th { width: 30%; font-weight: normal; color: #888; }
+
+        /* 地図をスマホでも綺麗に見せる設定 */
+        .map-container { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         footer { background: #333; color: white; text-align: center; padding: 30px; font-size: 0.8rem; }
     </style>
@@ -65,7 +56,7 @@
 <body>
 
     <header>
-        <h1>YOUR SALON NAME</h1>
+        <h1>Ruchka</h1>
     </header>
 
     <div class="hero">
@@ -79,8 +70,8 @@
         <h2>CONCEPT</h2>
         <div style="text-align: center;">
             <p>
-                ここにコンセプト文を入力してください。<br>
-                例：一人ひとりの髪質や骨格に合わせたオーダーメイドのカットをご提案します。<br>
+                美容室 Ruchka（ルーチカ）のホームページへようこそ。<br>
+                一人ひとりの髪質や骨格に合わせたオーダーメイドのスタイルをご提案します。<br>
                 日々の忙しさを忘れ、心からリラックスできる時間をお過ごしください。
             </p>
         </div>
@@ -92,9 +83,8 @@
             <div class="menu-item"><span>デザインカット</span><span class="price">¥5,500</span></div>
             <div class="menu-item"><span>フルカラー</span><span class="price">¥7,700</span></div>
             <div class="menu-item"><span>髪質改善トリートメント</span><span class="price">¥6,600</span></div>
-            <div class="menu-item"><span>ヘッドスパ（30分）</span><span class="price">¥4,400</span></div>
+            <div class="menu-item"><span>ヘッドスパ</span><span class="price">¥4,400</span></div>
         </div>
-        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #888;">※その他のメニューは予約サイトよりご確認いただけます。</p>
     </section>
 
     <div class="reserve-area">
@@ -105,16 +95,23 @@
     <section id="info">
         <h2>INFORMATION</h2>
         <table class="info-table">
-            <tr><th>住所</th><td>〒000-0000 〇〇県〇〇市〇〇 1-2-3</td></tr>
-            <tr><th>営業時間</th><td>10:00 〜 19:00（カット最終受付 18:00）</td></tr>
-            <tr><th>定休日</th><td>毎週月曜日、第1・3火曜日</td></tr>
-            <tr><th>電話番号</th><td>03-1234-5678</td></tr>
-            <tr><th>アクセス</th><td>〇〇駅 北口より徒歩3分 / 駐車場あり</td></tr>
+            <tr><th>住所</th><td>ここに住所を入力してください</td></tr>
+            <tr><th>営業時間</th><td>10:00 〜 19:00</td></tr>
+            <tr><th>定休日</th><td>毎週月曜日</td></tr>
+            <tr><th>電話番号</th><td>00-0000-0000</td></tr>
+            <tr><th>アクセス</th><td>〇〇駅より徒歩3分</td></tr>
         </table>
-    </section>
+
+        <div class="map-container">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.8280303808788!2d139.76493611211516!3d35.68123617247348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1715830000000!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3266.5043816568486!2d135.7657220763223!3d35.04412686470774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60010816fbb31fcd%3A0x14f3265f2b6a5fd2!2z44CSNjA2LTA4MjYg5Lqs6YO95bqc5Lqs6YO95biC5bem5Lqs5Yy65LiL6bSo6KW_5pys55S677yS77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1769947554806!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </section>
 
     <footer>
-        &copy; 2026 YOUR SALON NAME.
+        © 2026 Ruchka. All Rights Reserved.
     </footer>
 
 </body>
