@@ -4,12 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruchka（ルーチカ） | 美容室</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* --- デザイン設定 --- */
-        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.8; }
-        header { background: #fff; padding: 20px; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
-        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 3px; }
+        /* --- 基本設定 --- */
+        html { scroll-behavior: smooth; }
+        body { font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.8; background-color: #fff; }
         
+        /* --- ヘッダー & ナビゲーション --- */
+        header { 
+            background: #fff; 
+            padding: 15px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid #eee; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 3px; }
+
+        /* PCナビ（768px以上で表示） */
+        .nav-pc { display: flex; list-style: none; margin: 0; padding: 0; }
+        .nav-pc li { margin-left: 30px; }
+        .nav-pc a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; transition: 0.3s; }
+        .nav-pc a:hover { color: #b19470; }
+
+        /* ハンバーガーボタン */
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            z-index: 1100;
+            width: 30px;
+            height: 24px;
+            position: relative;
+        }
+        .menu-btn span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #333;
+            transition: 0.4s;
+        }
+        .menu-btn span:nth-child(1) { top: 0; }
+        .menu-btn span:nth-child(2) { top: 11px; }
+        .menu-btn span:nth-child(3) { bottom: 0; }
+
+        /* スマホ用全画面メニュー */
+        .nav-sp {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            transition: 0.5s;
+            z-index: 1050;
+        }
+        .nav-sp li { margin: 20px 0; }
+        .nav-sp a { text-decoration: none; color: #333; font-size: 1.5rem; letter-spacing: 2px; }
+
+        /* メニュー開閉時の状態 */
+        body.nav-open { overflow: hidden; }
+        body.nav-open .nav-sp { right: 0; }
+        body.nav-open .menu-btn span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+        body.nav-open .menu-btn span:nth-child(2) { opacity: 0; }
+        body.nav-open .menu-btn span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+        /* --- メインコンテンツ --- */
         .hero { 
             background: #f0f0f0; 
             height: 60vh; 
@@ -17,7 +88,6 @@
             align-items: center; 
             justify-content: center; 
             text-align: center; 
-            /* ★画像ファイルを差し替えました★ */
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('testimage_3.png'); 
             background-size: cover; 
             background-position: center; 
@@ -25,77 +95,162 @@
         }
         
         .hero-text h2 { font-size: 2rem; border: none; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
         h2 { text-align: center; font-size: 1.8rem; margin-bottom: 40px; letter-spacing: 4px; position: relative; }
         h2::after { content: ""; display: block; width: 40px; height: 2px; background: #b19470; margin: 15px auto 0; }
+
+        /* --- コンセプト詳細 --- */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 40px; }
+        .feature-box { background: #fafafa; padding: 30px; border-radius: 12px; border-top: 4px solid #b19470; }
+        .feature-box h3 { font-size: 1.3rem; margin-top: 0; display: flex; align-items: center; color: #b19470; }
+        .feature-box h3 i { margin-right: 10px; }
+        .feature-tagline { font-weight: bold; font-size: 1rem; color: #444; margin-bottom: 15px; display: block; border-left: 3px solid #b19470; padding-left: 10px; }
+        .feature-desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+        .herb-list { font-size: 0.8rem; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #eee; }
+        .spa-points { list-style: none; padding: 0; font-size: 0.9rem; }
+        .spa-points li { position: relative; padding-left: 25px; margin-bottom: 8px; }
+        .spa-points li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; color: #b19470; }
         
-        .menu-container { background: #fafafa; padding: 30px; border-radius: 8px; }
-        .menu-item { display: flex; justify-content: space-between; border-bottom: 1px solid #e0e0e0; padding: 15px 0; font-size: 1.1rem; }
-        .price { font-weight: bold; color: #555; }
-        
+        /* --- メニューカード --- */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .menu-card { background: #fafafa; border: 1px solid #eee; padding: 25px; border-radius: 12px; position: relative; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .menu-card:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: #b19470; }
+        .menu-title { font-size: 1rem; font-weight: bold; margin-bottom: 15px; line-height: 1.6; color: #444; }
+        .menu-price { font-size: 1.2rem; font-weight: bold; color: #b19470; text-align: right; border-top: 1px dashed #ddd; padding-top: 10px; }
+        .badge { position: absolute; top: -12px; left: 20px; background: #b19470; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
+
+        /* --- 予約・SNS --- */
         .reserve-area { text-align: center; background: #f4f1ee; padding: 60px 20px; }
-        .btn-hpb { 
-            display: inline-block; 
-            background: #b19470; 
-            color: white; 
-            text-decoration: none; 
-            padding: 20px 50px; 
-            font-size: 1.2rem; 
-            font-weight: bold; 
-            border-radius: 50px; 
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(177, 148, 112, 0.3);
-        }
-        .btn-hpb:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(177, 148, 112, 0.5); }
-        
+        .btn-common { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; padding: 18px 30px; font-size: 1.1rem; font-weight: bold; border-radius: 50px; transition: 0.3s; margin: 10px; min-width: 260px; }
+        .btn-common i { margin-right: 12px; font-size: 1.4rem; }
+        .btn-common:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .btn-hpb { background: #b19470; color: white; }
+        .btn-line { background: #06C755; color: white; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+        .sns-text { margin-top: 30px; font-size: 0.9rem; color: #666; }
+
+        /* --- 情報テーブル・地図 --- */
         .info-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
         .info-table th, .info-table td { padding: 18px; border-bottom: 1px solid #eee; text-align: left; }
         .info-table th { width: 30%; font-weight: normal; color: #888; }
-
-        /* 地図をスマホでも綺麗に見せる設定 */
         .map-container { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
         .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         footer { background: #333; color: white; text-align: center; padding: 30px; font-size: 0.8rem; }
+
+        /* レスポンシブ切り替え */
+        @media (max-width: 768px) {
+            .nav-pc { display: none; }
+            .menu-btn { display: block; }
+            .hero-text h2 { font-size: 1.5rem; }
+            section { padding: 60px 20px; }
+        }
     </style>
 </head>
-<body>
+<body id="top">
 
     <header>
         <h1>Ruchka</h1>
+        <nav>
+            <ul class="nav-pc">
+                <li><a href="#top">TOP</a></li>
+                <li><a href="#concept">CONCEPT</a></li>
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#info">ACCESS</a></li>
+            </ul>
+        </nav>
+        <div class="menu-btn" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+
+    <ul class="nav-sp">
+        <li><a href="#top" onclick="toggleNav()">TOP</a></li>
+        <li><a href="#concept" onclick="toggleNav()">CONCEPT</a></li>
+        <li><a href="#menu" onclick="toggleNav()">MENU</a></li>
+        <li><a href="#info" onclick="toggleNav()">ACCESS</a></li>
+    </ul>
 
     <div class="hero">
         <div class="hero-text">
-            <h2>自分らしさを、もっと好きになる。</h2>
-            <p>こだわりの技術と、リラックスできる空間を。</p>
+            <h2>理想のニュアンスを、確かなカタチに。</h2>
+            <p>女性専用サロンならではの技術を。</p>
         </div>
     </div>
 
     <section id="concept">
         <h2>CONCEPT</h2>
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-bottom: 40px;">
             <p>
-                美容室 Ruchka（ルーチカ）のホームページへようこそ。<br>
                 一人ひとりの髪質や骨格に合わせたオーダーメイドのスタイルをご提案します。<br>
-                日々の忙しさを忘れ、心からリラックスできる時間をお過ごしください。
+                日々の忙しさを忘れ、リラックスできる時間をお過ごしください。
             </p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-box">
+                <h3><i class="fa-solid fa-leaf"></i>ORGANIC COLOR</h3>
+                <span class="feature-tagline">オーガニックカラーで叶えるボタニカル・ヘアケア</span>
+                <p class="feature-desc">11種類のハーブの恵みが、カラーによるダメージを徹底ケア。保湿・毛髪保護に優れたエキスが地肌を健やかに、髪に潤いを与えます。</p>
+                <div class="herb-list">
+                    <strong>【配合エキス】</strong><br>
+                    ノバラ / ラベンダー / ローズマリー / タイム / セイヨウノコギリソウ / セージ葉 / オトギリソウ / カミツレ花 / シナノキ / トウキンセンカ花 / ヤグルマギク花
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <h3><i class="fa-solid fa-spa"></i>CREAM HEAD SPA</h3>
+                <span class="feature-tagline">バリ島のスパブランドを使用</span>
+                <p class="feature-desc">植物由来の栄養たっぷりな専用クリームを使用し、頭皮と髪を同時にケア。心身ともに解き放たれるリラクゼーションを提供します。</p>
+                <ul class="spa-points">
+                    <li>毛穴の汚れを浮かし、ニオイ・ベタつきを解消</li>
+                    <li>髪を内側から保湿し、輝くツヤを与えます</li>
+                    <li>頭の筋肉を引き上げ、リラックス効果＆眼精疲労解消</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="menu">
         <h2>MENU</h2>
-        <div class="menu-container">
-            <div class="menu-item"><span>デザインカット</span><span class="price">¥5,500</span></div>
-            <div class="menu-item"><span>フルカラー</span><span class="price">¥7,700</span></div>
-            <div class="menu-item"><span>髪質改善トリートメント</span><span class="price">¥6,600</span></div>
-            <div class="menu-item"><span>ヘッドスパ</span><span class="price">¥4,400</span></div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <span class="badge">RECOMMENDED</span>
+                <div class="menu-title">デザインカット + <br>オーガニックカラー + <br>トリートメント + <br>プチスパ</div>
+                <div class="menu-price">¥11,000</div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-title">デザインカット + <br>オーガニックカラー + <br>トリートメント</div>
+                <div class="menu-price">¥7,700</div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-title">オーガニックカラー + <br>トリートメント</div>
+                <div class="menu-price">¥4,400</div>
+            </div>
+            <div class="menu-card">
+                <div class="menu-title">デザインカット + <br>トリートメント</div>
+                <div class="menu-price">¥4,400</div>
+            </div>
         </div>
     </section>
 
     <div class="reserve-area">
-        <p>ご予約はホットペッパービューティーから承っております</p>
-        <a href="https://beauty.hotpepper.jp/XXXXXXXXXX" class="btn-hpb">空席確認・予約する</a>
+        <h2>RESERVE / SNS</h2>
+        <p>ご予約・お問い合わせはこちらから</p>
+        <a href="https://beauty.hotpepper.jp/slnH000799121/?cstt=12&wak=BPSC400401_s_link_salontop&photo1=B254427960&photo2=B255669754" class="btn-common btn-hpb">
+            <i class="fa-regular fa-calendar-check"></i>ネット予約
+        </a>
+        <div>
+            <a href="https://line.me/R/ti/p/@407jdvxj" class="btn-common btn-line">
+                <i class="fa-brands fa-line"></i>LINE
+            </a>
+            <a href="https://www.instagram.com/ruchka_kyoto" class="btn-common btn-insta">
+                <i class="fa-brands fa-instagram"></i>Instagram
+            </a>
+        </div>
+        <p class="sns-text">※施術中はお電話に出られないため、ネットでのご予約がスムーズです。</p>
     </div>
 
     <section id="info">
@@ -104,18 +259,23 @@
             <tr><th>住所</th><td>京都府京都市左京区下鴨西本町２１−１</td></tr>
             <tr><th>営業時間</th><td>09:00 〜 19:00</td></tr>
             <tr><th>定休日</th><td>不定休</td></tr>
-            <tr><th>電話番号</th><td>00-0000-0000</td></tr>
-            <tr><th>アクセス</th><td>北大路駅より徒歩7分,バス停「府立大学前」降りてすぐ</td></tr>
+            <tr><th>電話番号</th><td>080-8072-1601</td></tr>
+            <tr><th>アクセス</th><td>北大路駅より徒歩7分<br>バス停「府立大学前」降りてすぐ</td></tr>
         </table>
-
         <div class="map-container">
-           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3266.5043816568486!2d135.7657220763223!3d35.04412686470774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60010816fbb31fcd%3A0x14f3265f2b6a5fd2!2z44CSNjA2LTA4MjYg5Lqs6YO95bqc5Lqs6YO95biC5bem5Lqs5Yy65LiL6bSo6KW_5pys55S677yS77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1769947554806!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3266.5043816568486!2d135.7657220763223!3d35.04412686470774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60010816fbb31fcd%3A0x14f3265f2b6a5fd2!2z44CSNjA2LTA4MjYg5Lqs6YO95bqc5Lqs6YO95biC5bem5Lqs5Yy65LiL6bSo6KW_5pys55S677yS77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1769947554806!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
     <footer>
         © 2026 Ruchka. All Rights Reserved.
     </footer>
+
+    <script>
+        function toggleNav() {
+            document.body.classList.toggle('nav-open');
+        }
+    </script>
 
 </body>
 </html>
