@@ -136,6 +136,18 @@
         .map-container { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
         .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+        /* --- BLOGセクション --- */
+        .blog-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+        .blog-card { display: flex; align-items: center; justify-content: space-between; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 24px 28px; text-decoration: none; color: #333; transition: 0.3s; }
+        .blog-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.07); border-color: #b19470; }
+        .blog-card-body { flex: 1; }
+        .blog-date { font-size: 0.85rem; color: #b19470; margin-bottom: 6px; }
+        .blog-title { font-size: 1rem; font-weight: bold; margin-bottom: 6px; }
+        .blog-excerpt { font-size: 0.85rem; color: #888; }
+        .blog-arrow { color: #b19470; font-size: 1.2rem; margin-left: 20px; }
+        .btn-blog-more { display: inline-block; text-decoration: none; padding: 14px 40px; border: 2px solid #b19470; color: #b19470; border-radius: 50px; font-weight: bold; letter-spacing: 1px; transition: 0.3s; }
+        .btn-blog-more:hover { background: #b19470; color: #fff; }
+
         footer { background: #333; color: white; text-align: center; padding: 30px; font-size: 0.8rem; }
 
         /* レスポンシブ切り替え */
@@ -236,6 +248,39 @@
         </div>
     </section>
 
+    <section id="blog">
+        <h2>BLOG</h2>
+        <div class="blog-list">
+            <a href="https://beauty.hotpepper.jp/slnH000799121/blog/" class="blog-card">
+                <div class="blog-card-body">
+                    <div class="blog-date">2026.04.10</div>
+                    <div class="blog-title">春のおすすめヘアカラー特集</div>
+                    <div class="blog-excerpt">春らしいニュアンスカラーが大人気。オーガニックカラーで髪に優しく、透明感のある仕上がりをご提案します。</div>
+                </div>
+                <div class="blog-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+            <a href="https://beauty.hotpepper.jp/slnH000799121/blog/" class="blog-card">
+                <div class="blog-card-body">
+                    <div class="blog-date">2026.03.25</div>
+                    <div class="blog-title">クリームヘッドスパで頭皮ケアを始めよう</div>
+                    <div class="blog-excerpt">バリ島発のスパブランドを使用したヘッドスパ。毛穴の汚れをスッキリ落とし、髪にツヤと潤いを与えます。</div>
+                </div>
+                <div class="blog-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+            <a href="https://beauty.hotpepper.jp/slnH000799121/blog/" class="blog-card">
+                <div class="blog-card-body">
+                    <div class="blog-date">2026.03.10</div>
+                    <div class="blog-title">Ruchkaのこだわり〜女性専用サロンだからできること〜</div>
+                    <div class="blog-excerpt">お一人おひとりの髪質・骨格に合わせたオーダーメイドスタイル。リラックスできる空間づくりへのこだわりをご紹介します。</div>
+                </div>
+                <div class="blog-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </a>
+        </div>
+        <div style="text-align: center;">
+            <a href="https://beauty.hotpepper.jp/slnH000799121/blog/" class="btn-blog-more">ブログをもっと見る</a>
+        </div>
+    </section>
+
     <div class="reserve-area">
         <h2>RESERVE / SNS</h2>
         <p>ご予約・お問い合わせはこちらから</p>
@@ -248,11 +293,6 @@
             </a>
             <a href="https://www.instagram.com/ruchka_kyoto" class="btn-common btn-insta">
                 <i class="fa-brands fa-instagram"></i>Instagram
-            </a>
-        </div>
-        <div>
-            <a href="https://beauty.hotpepper.jp/slnH000799121/blog/" class="btn-common btn-hpb">
-                <i class="fa-solid fa-pen-nib"></i>ブログを読む
             </a>
         </div>
         <p class="sns-text">※施術中はお電話に出られないため、ネットでのご予約がスムーズです。</p>
