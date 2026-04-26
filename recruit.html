@@ -6,7 +6,7 @@
   <title>採用情報 | Ruchka（ルーチカ）美容室</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --cream: #f8f4ef;
@@ -27,7 +27,7 @@
     body {
       background: var(--warm-white);
       color: var(--text);
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Noto Sans JP', sans-serif;
       font-weight: 300;
       line-height: 1.8;
       overflow-x: hidden;
@@ -48,10 +48,10 @@
     }
 
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 300;
-      letter-spacing: 0.15em;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 3px;
       color: var(--dark);
       text-decoration: none;
     }
@@ -61,7 +61,7 @@
       display: block;
       letter-spacing: 0.2em;
       color: var(--text-light);
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Noto Sans JP', sans-serif;
       margin-top: 2px;
     }
 
@@ -195,11 +195,12 @@
     }
 
     .empathy-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      color: var(--taupe);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--dark);
       margin-bottom: 40px;
-      text-transform: uppercase;
     }
 
     .empathy-list {
@@ -236,17 +237,20 @@
     }
 
     .section-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
       color: var(--taupe);
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
 
     .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 300;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
       color: var(--dark);
       margin-bottom: 64px;
       line-height: 1.4;
@@ -325,7 +329,7 @@
       background: var(--sand);
       border: none;
       cursor: pointer;
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 0.85rem;
       color: var(--text-light);
       letter-spacing: 0.1em;
@@ -496,7 +500,7 @@
       border: 1px solid rgba(196,176,154,0.3);
       color: var(--warm-white);
       padding: 14px 18px;
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 0.9rem;
       font-weight: 300;
       outline: none;
@@ -534,7 +538,7 @@
       background: transparent;
       border: 1px solid var(--taupe);
       color: var(--warm-white);
-      font-family: 'Noto Serif JP', serif;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 0.85rem;
       letter-spacing: 0.2em;
       cursor: pointer;
@@ -679,8 +683,8 @@
 
 <!-- STRENGTHS -->
 <section class="strengths">
-  <p class="section-label reveal">Ruchkaで働く3つの理由</p>
-  <h2 class="section-title reveal">Why Ruchka?</h2>
+  <p class="section-label reveal">Why Ruchka?</p>
+  <h2 class="section-title reveal">Ruchkaで働く3つの理由</h2>
   <div class="strength-grid">
     <div class="strength-item reveal">
       <div class="strength-num">01</div>
@@ -720,8 +724,8 @@
 <!-- CONDITIONS -->
 <section class="conditions">
   <div class="conditions-inner">
-    <p class="section-label reveal">募集要項</p>
-    <h2 class="section-title reveal">Conditions</h2>
+    <p class="section-label reveal">Conditions</p>
+    <h2 class="section-title reveal">募集要項</h2>
     <div class="conditions-tabs reveal">
       <button class="tab-btn active" onclick="switchTab('seishain')">正社員スタイリスト</button>
       <button class="tab-btn" onclick="switchTab('arbeit')">アルバイトスタイリスト</button>
@@ -758,8 +762,8 @@
 
 <!-- FLOW -->
 <section class="flow">
-  <p class="section-label reveal">応募から入社まで</p>
-  <h2 class="section-title reveal">Flow</h2>
+  <p class="section-label reveal">Flow</p>
+  <h2 class="section-title reveal">応募から入社まで</h2>
   <div class="flow-steps">
     <div class="flow-step reveal">
       <div class="flow-num">1</div>
@@ -795,8 +799,8 @@
 <!-- FORM -->
 <section class="form-section" id="apply">
   <div class="form-inner">
-    <p class="section-label reveal">応募フォーム</p>
-    <h2 class="section-title reveal">Apply</h2>
+    <p class="section-label reveal">Apply</p>
+    <h2 class="section-title reveal">応募フォーム</h2>
     <p class="form-lead reveal">
       まずはお気軽にご連絡ください。<br>
       3営業日以内にメールにてご返信いたします。
